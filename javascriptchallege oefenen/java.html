@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<style>
+    body, html{
+        height: 100%;
+    }
+    .bg{
+        background-image: url("img/achtergrond.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #img{
+        position: absolute;
+    }
+    #plaatje{
+        position: absolute;
+        margin-left: 200px;
+    }
+
+
+</style></head>
+<body class="bg" onload="startSound();">
+
+<p>
+<button onclick=" plaatje1()"> klikken op mij</button>
+</p>
+
+<div>
+    <img id="img" src="img/oefenen.png" alt="proberen sorry"/>
+    <img id="plaatje" src="img/boom.png">
+</div>
+
+<script>
+
+    function startSound() {
+        myMusic = new sound("sound/sound2.mp3");
+        myMusic.play();
+    }
+
+    function sound(src) {
+        this.sound = document.createElement("audio");
+        this.sound.src = src;
+        this.play = function () {
+            this.sound.play();
+        }
+        this.stop = function () {
+            this.sound.pause();
+        }
+    }
+        function plaatje1() {
+            var plaatje = document.getElementById("img");
+            var plaatje2 = document.getElementById("plaatje");
+            var pos = 0;
+            var id = setInterval(frame, 0);
+
+            function frame() {
+                if (pos === 300) {
+                    clearInterval(id);
+                } else {
+                    pos++;
+                    plaatje.style.top = pos + 'px';
+                    plaatje.style.left = pos + '';
+
+                    plaatje2.style.top = pos + 'px';
+                    plaatje2.style.left = pos + "";
+                }
+            }
+        }
+
+
+</script>
+</body>
+</html>

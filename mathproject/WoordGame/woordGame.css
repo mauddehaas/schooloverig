@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;}
+
+/*LETTERTYPE & ACHTERGROND KLEUR*/
+body {
+    background-color: teal;
+    font-family: 'Raleway', sans-serif;
+}
+
+/*OPMAAK WRAPPER/VAK 1*/
+.wrapper0 {
+    max-width: 1200px;
+    display: block;
+    margin: auto;
+    margin-top: 70px;
+    width: 100%;
+    text-align: center;
+    border-radius: 30px;
+    padding: 1%;
+    background-color: darkseagreen;
+    box-shadow: 0px 5px 0px 0px lightseagreen;
+    height: 350px;
+}
+
+/*OPMAAK WRAPPER/VAK 1*/
+.wrapper {
+    max-width: 1200px;
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+    border-radius: 30px;
+    padding: 2%;
+    background-color: darkseagreen;
+    box-shadow: 0px 5px 0px 0px lightseagreen;
+    height: 700px;
+}
+
+h1 {
+    font-size: 50px;
+    color: darkslategray;
+}
+
+h1 + p {
+    margin-bottom: 5%;
+    color: white;
+}
+
+.scoreWrap {float: left;}
+.timeWrap {float: right;}
+
+.outerWrap:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.bg {
+    background-color: teal;
+}
+
+button {
+    border: none;
+    background-color: darkgray;
+    box-shadow: 0px 5px 0px 0px grey;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 22px;
+    text-decoration: none;
+    margin: 40px;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+button:active {
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    box-shadow: 0px 1px 0px 0px;
+}
+
+.scoreWrap p, .scoreWrap span, .timeWrap p, .timeWrap span {
+    font-size: 30px;
+    color: olivedrab;
+}
+
+.wordsWrap {
+    margin-top: 50px;
+}
+
+.words span{
+    font-size: 60px;
+    letter-spacing: 1px;
+    color: #ECF0F1;
+}

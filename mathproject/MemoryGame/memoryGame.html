@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory</title>
+    <link rel="stylesheet" href="memoryGame.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel='stylesheet' type='text/css'>
+
+</head>
+<header>
+    <nav>
+        <ul>
+            <li><a href="../WoordGame/index.html">Woordspel</a></li>
+            <li><a href="../KlikGame/klikGame.html">Klikspel</a>
+            <li><a href="../MemoryGame/memoryGame.html">Memoryspel</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+<div id="kleurtekst">
+
+<h1>Joey's Cijfer Memory</h1>
+<div id="container">
+    <div id="intro">
+        <h1>Welcome to Joey's <span>Memory Game</span>!</h1>
+    </div>
+</div>
+    <div id="game">
+        <div id="settings">
+            <p>Number of tiles (<span>10</span>)</p>
+            <input type="range" value="10" min="10" max="20" step="2">
+            <button name="reset">Reset</button>
+            <button name="start">Start</button>
+        </div>
+
+        <div id="play-area"></div>
+    </div>
+</div>
+<script src="memoryGame.js"></script>
+</body>
+</html>

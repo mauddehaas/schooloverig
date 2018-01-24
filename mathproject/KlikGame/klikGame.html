@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <title>Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        body{
+            background-color: teal;
+            font-family: 'Raleway', sans-serif;
+        }
+
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;}
+
+        #ruimte{
+            padding-top: 20px;
+            background-color: darkseagreen;
+            width: 50%;
+            height: 300px;
+            display: block;
+            margin: auto;
+            border-radius: 30px;
+            box-shadow: 0px 5px 0px 0px lightseagreen;
+        }
+
+        #teller{
+            float: right;
+        }
+
+        span {
+            pointer-events: none;
+        }
+
+        button {
+            float: right;
+            display: block;
+            margin: auto;
+            border: none;
+            background-color: darkgray;
+            box-shadow: 0 5px 0 0 grey;
+            outline: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 22px;
+            text-decoration: none;
+            color: #fff;
+            cursor: pointer;
+            margin-top: 40px;
+        }
+
+        #tekst{
+            background-color: darkseagreen;
+            width: 50%;
+            height: 350px;
+            padding: 2%;
+            display: block;
+            margin: auto;
+            margin-top: 70px;
+            padding-top: 50px;
+            border-radius: 30px;
+            box-shadow: 0px 5px 0px 0px lightseagreen;
+            text-align: center;
+            padding-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 50px;
+            color: darkslategray;
+        }
+
+        h1 + p {
+            margin-bottom: 5%;
+            color: white;
+        }
+
+        .timeWrap{
+            padding-top: 20px;
+        }
+
+        .breedte{
+            width: 20%;
+            float: left;
+            display: block;
+            margin: auto;
+            margin-left: 150px;
+
+        }
+
+        #even{
+            margin: 10px;
+        }
+
+        #onderkant{
+            padding-top: 40px;
+
+        }
+
+        #button{
+            margin-right: 150px;
+            font-size: 60px;
+
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+        <li><a href="../WoordGame/index.html">Woordspel</a></li>
+        <li><a href="../KlikGame/klikGame.html">Klikspel</a>
+        <li><a href="../MemoryGame/memoryGame.html">Memoryspel</a></li>
+    </ul>
+    </nav>
+</header>
+<span id="tekst">
+    <h1>Wiskunde</h1>
+    <p id="even">Het woord seconde is afkomstig van het Latijnse pars minuta
+        secunda dat letterlijk tweede kleine deel betekent. Voor een deel heeft dat
+        betrekking op het zestigtallige stelsel zoals dat in Babylon in gebruik was.
+        Men verdeelt tegenwoordig nog steeds uren en booggraden eerst in 60 minuten (dat wil
+        zeggen kleine deeltjes) en deze weer in 60 seconden (tweede kleine deeltjes). Het woord
+        heeft betekenissen
+        in de natuurkunde, de wiskunde en de muziek.<br><br>
+        Hieronder een klik spelletje die het aantal kliks per seconde berekend. klik op start en begin. Hoevaak kan
+        jij klikken per seconde?
+    </p>
+</span>
+
+<div id="onderkant">
+    <div class="breedte">
+        <div class="timeWrap">
+            <p>Tijd over</p>
+            <span class="time">60</span>
+        </div>
+        <h3><span id="cps">
+</span>  Clicks per second</h3>
+        <br>
+        <h3><span id="clicks">
+</span>   total clicks</h3>
+    </div>
+    <button id="button">START</button>
+    <div id="ruimte">
+        <h1 style="text-align: center">CLICK!!!!!</h1>
+        <div id="teller">
+            <span id="timer"></span>
+        </div>
+    </div>
+
+    <script>
+        var cps = document.getElementById("cps");
+        var clicks = document.getElementById("clicks");
+        var tellen = 0;
+        var numSec = 1;
+        var start = 0;
+        window.addEventListener("click", function() {
+            tellen++;
+            start++;
+            clicks.innerHTML = start;
+        });
+
+        getCPS();
+
+        function getCPS() {
+            setTimeout(function() {
+                cps.innerHTML = tellen;
+                tellen = 0;
+                getCPS();
+            }, numSec*1000);
+        }
+
+        var button = document.querySelector("button");
+        var temp = document.querySelector('.time');
+        var timerDiv = document.querySelector(".time");
+        var seconds = 60;
+
+        function countdown() {
+            start = 0;
+            var timer = setInterval(function(){
+                button.disabled = true;
+                seconds--;
+                temp.innerHTML = seconds;
+                if (seconds === 0) {
+                    alert("Game over! Your score is " + start);
+                    button.disabled = false;
+                    clearInterval(timer);
+                    seconds = 60;
+                    timerDiv.innerHTML = "60";
+                    button.disabled = false;
+                }
+            }, 1000);
+        }
+
+        button.addEventListener("click", function(e){
+            countdown();
+            random();
+            button.disabled = true;
+        });
+
+    </script>
+</div>
+</body>
+</html>
